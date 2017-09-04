@@ -239,7 +239,7 @@ AttributesForm.propTypes = {
   ethnicityOptions: React.PropTypes.array,
   skinTypes: React.PropTypes.array,
   buttonSend: React.PropTypes.string,
-  onSubmit: React.PropTypes.func.required,
+  //onSubmit: React.PropTypes.func.required,
   //gender:React.PropTypes.array,
 }
 
