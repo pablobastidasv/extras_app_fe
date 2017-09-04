@@ -244,7 +244,7 @@ AttributesForm.propTypes = {
 }
 
 AttributesForm.defaultProps = {
-  hairLengthOptions: ['Long','Short','Bald'],
+  hairLengthOptions: ['Long','Short','Curly'],
   hairColorOptions: ['Blond','Red','Grey','White','Bald'],
   noseTypeOptions: ['Greek','Roman','Nubian','Hawk','Snub','Turnup'],
   bodyTypeOptions:  ['Blond', 'Red', 'Grey', 'White','Bald','Blond'],
