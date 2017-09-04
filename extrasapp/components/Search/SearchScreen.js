@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Text, View ,FlatList} from 'react-native';
 import _ from 'lodash'
 
-import { getSearchResults } from './../../data/promises'
+import { getSearch } from './../../data/promises'
 import {Grid, Row} from 'react-native-elements'
 import Search from './Search'
 import { AttributesForm } from './../Common'
@@ -26,9 +26,18 @@ export default class SearchScreen extends Component {
   }
 
   onSubmit(data) {
+    const cleanData = _.omitBy(data, (o) =>  o === '' );
+    const cleanObject = {
+      data : cleanData,
+      pagination: {
+        "page": 2,
+        "size": 20
+      }
+    }
   	this.setState({ isLoading: true })
-  	getSearchResults().then((data) => {
-  	  this.setState({isLoading: false, searching: true, data})
+  	getSearch(cleanObject).then((data) => {
+      const response = JSON.parse(data._bodyInit);
+  	  this.setState({isLoading: false, searching: true, data: response})
   	})
   }
 
@@ -55,11 +64,11 @@ export default class SearchScreen extends Component {
 			<List>
       		  <FlatList
         	   data={this.state.data}
-               keyExtractor={item => item.name}        
+               keyExtractor={item => item.type}        
                renderItem={({ item }) => (
           		<ListItem
                  title={_.startCase(item.name)}
-                 subtitle={item.value}
+                 subtitle={item.dni}
                  rightIcon={{name: 'face'}}
                  onPress={this.loadUser}
           		/>
