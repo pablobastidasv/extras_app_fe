@@ -7,7 +7,7 @@ export default class ProfileScreen extends Component {
  render() {
    const { navigate } = this.props.navigation;
    return (
-     <Text>Perfil</Text>
+     <Text>Profile</Text>
    );
  }
 }

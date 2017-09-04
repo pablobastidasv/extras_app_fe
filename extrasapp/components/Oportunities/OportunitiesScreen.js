@@ -7,7 +7,7 @@ export default class OportunitiesScreen extends Component {
  render() {
    const { navigate } = this.props.navigation;
    return (
-     <Text>Oportunidades</Text>
+     <Text>Oportunities</Text>
    );
  }
 }
