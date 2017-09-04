@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button, Text} from 'react-native';
+import { Button, Text, View } from 'react-native';
 import _ from 'lodash'
 
 import { getSearch } from './../../data/searches'
@@ -18,15 +18,10 @@ export default class SearchScreen extends Component {
    const data = getSearch();
 
    return (
-   	 <Grid>
-   	 	<Row><Text>Search</Text></Row>
-   	 	<Row><AttributesForm /></Row>
-     	<Row>
-     		<Grid>
-     			{_.map(data, (d) => <Row><Text>{d.name}</Text></Row>)}
-     		</Grid>
-     	</Row>
-     </Grid>
+   	 <View>
+   	   <View><Text>Search</Text></View>
+   	   <View><AttributesForm /></View>
+     </View>
    );
  }
 }

@@ -1,4 +1,4 @@
-import { AttributesForm } from './AttributesForm'
+import AttributesForm from './AttributesForm'
 
 export {
 	AttributesForm,
