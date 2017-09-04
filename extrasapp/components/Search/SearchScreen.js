@@ -7,7 +7,6 @@ import {Grid, Row} from 'react-native-elements'
 import Search from './Search'
 import { AttributesForm } from './../Common'
 
-
 import { List, ListItem} from 'react-native-elements';
 
 export default class SearchScreen extends Component {
@@ -20,7 +19,6 @@ export default class SearchScreen extends Component {
   	  isLoading: false,
   	  data: [],
   	}
-  	//autoBind(this, onSubmit)
   	this.onSubmit = this.onSubmit.bind(this);
   	this.loadUser = this.loadUser.bind(this);
   }
@@ -70,7 +68,7 @@ export default class SearchScreen extends Component {
                  title={_.startCase(item.name)}
                  subtitle={item.dni}
                  rightIcon={{name: 'face'}}
-                 onPress={this.loadUser}
+                 onPress={() => this.loadUser(item)}
           		/>
         	  )}
       		/>
