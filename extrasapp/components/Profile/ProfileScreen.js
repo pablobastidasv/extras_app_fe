@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Image, View, FlatList} from 'react-native';
+import {Image, View, ScrollView,git p FlatList} from 'react-native';
 import _ from 'lodash';
 import {Button, Text, Tile, Form, FormInput, Card, List, ListItem} from 'react-native-elements';
 
@@ -48,6 +48,7 @@ export default class ProfileScreen extends Component {
       imageSrc={{uri: this.state.data.imgUrl }}
       title={this.state.data.name}
       caption={this.state.data.message}/>
+      <ScrollView>
       <List>
       <FlatList
         data={this.state.data.attributes}
@@ -60,7 +61,8 @@ export default class ProfileScreen extends Component {
           />
         )}
       />
-    </List>
+      </List>
+      </ScrollView>
     </View>}
    </View>)
  }

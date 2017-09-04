@@ -58,7 +58,6 @@ export default class SearchScreen extends Component {
    	     </View>
        </View>}
        {this.state.searching && <View>
-       	  <Text>Search Results</Text>
 			<List>
       		  <FlatList
         	   data={this.state.data}

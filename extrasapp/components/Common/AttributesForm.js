@@ -79,7 +79,7 @@ export default class AttributesForm extends Component {
   renderNoseTypes(){
   	const { props } = this
   	return (<View>
-	  <Text style={{color: '#c0392b'}}>Hair Color</Text>
+	  <Text style={{color: '#c0392b'}}>Nose</Text>
 	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.noseTypeOptions, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
@@ -192,8 +192,7 @@ export default class AttributesForm extends Component {
 	return (
 	  <ScrollView 
 	    pagingEnabled={true}
-	    onContentSizeChange={this.setScrollHeight}
-        style={{height: this.state.scrollHeight}}
+      style={{height: this.state.scrollHeight}}
 	    horizontal={false}>
 			<Text h4 style={{textAlign: 'center', color: '#34495e' }}>What type of extra are you looking for?</Text>
 			<Button
@@ -218,12 +217,6 @@ export default class AttributesForm extends Component {
 				{this.renderGender()}
 				{this.renderCity()}
 			</View>
-  		<Button
-  		 title={props.buttonSend}
-			 onPress={this.submit}
-			 backgroundColor={'#34495e'}
-  		 containerStyle={{backgroundColor: '#34495e'}}>
-  		</Button>
 	  </ScrollView>
 	);
   }
@@ -245,9 +238,9 @@ AttributesForm.propTypes = {
 
 AttributesForm.defaultProps = {
   hairLengthOptions: ['Long','Short','Bald'],
-  hairColorOptions: ['Blond','Red','Grey','White','Bald'],
+  hairColorOptions: ['Blond','Red','Grey','White'],
   noseTypeOptions: ['Greek','Roman','Nubian','Hawk','Snub','Turnup'],
-  bodyTypeOptions:  ['Blond', 'Red', 'Grey', 'White','Bald','Blond'],
+  bodyTypeOptions: ['Plump', 'Stocky', 'Overweight', 'Fat', 'Slim', 'Trim', 'Skinny', 'Buff', 'Well built'],
   eyeColors:  ['Green', 'Blue', 'Brown', 'Black'],
   ethnicityOptions: [ 'American Indian', 'Asian', 'Black','White',' Hispanic' ],
   skinTypes: ['Sensitive','Fair', 'Normal', 'Olive', 'Brown', 'Black'],
