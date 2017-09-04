@@ -1,16 +1,12 @@
-import { getSearch } from './searches'
-
-export const getUserById = (id) => {
- return fetch('/posibleEndpoint', {id})
-   .then((response) => response.json())
-   .catch((error) => {
-     console.error(error);
-   });
-}
-
-
-
-export const getSearchResults = (data) => {
-	return Promise.resolve(getSearch())
-
+export const getSearch = (data) => {
+return fetch('http://localhost:4567/search', {  
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    ...data
+  })
+})
 }
