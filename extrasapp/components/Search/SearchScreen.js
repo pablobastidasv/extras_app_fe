@@ -38,7 +38,6 @@ export default class SearchScreen extends Component {
    return (
    	 <View>
    	   {!this.state.searching && <View>
-   	     <View><Text>Search</Text></View>
    	     <View>
    	       <AttributesForm onSubmit={this.onSubmit} />
    	     </View>
