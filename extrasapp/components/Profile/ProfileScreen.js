@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Image, View, ScrollView,git p FlatList} from 'react-native';
+import {Image, View, ScrollView, FlatList} from 'react-native';
 import _ from 'lodash';
 import {Button, Text, Tile, Form, FormInput, Card, List, ListItem} from 'react-native-elements';
 
@@ -25,7 +25,7 @@ export default class ProfileScreen extends Component {
  loadUser(data){
   let user = data
   
-  user.message= 'El mejor gato del multiuniverso'
+  user.message= ''
   user.imgUrl= 'https://placekitten.com/g/300/200'
   this.setState({ data: user })
 
@@ -41,14 +41,13 @@ export default class ProfileScreen extends Component {
  render() {
    const { navigate } = this.props.navigation;
    return (<View>
-    {this.state.data && <View>
+    {this.state.data && <ScrollView>
 
       <Tile
       featured
       imageSrc={{uri: this.state.data.imgUrl }}
       title={this.state.data.name}
       caption={this.state.data.message}/>
-      <ScrollView>
       <List>
       <FlatList
         data={this.state.data.attributes}
@@ -62,8 +61,7 @@ export default class ProfileScreen extends Component {
         )}
       />
       </List>
-      </ScrollView>
-    </View>}
+    </ScrollView>}
    </View>)
  }
 }
@@ -71,41 +69,3 @@ export default class ProfileScreen extends Component {
 ProfileScreen.propTypes = {
   user: React.PropTypes.object,
 }
-
-/*
-ProfileScreen.defaultProps = {
-  user: {
-        profileId: '34599',
-        name: 'Marcus Sanchez',
-        attributes: [
-          { 
-            name: 'hairLenght',
-            value: 'Short',
-          },
-          { 
-            name: 'nose',
-            value: 'Straight',
-          },
-          { 
-            name: 'bodyType',
-            value: 'Skinny',
-          },
-          { 
-            name: 'eyes',
-            value: 'Dark',
-          },
-          { 
-            name: 'HaiStyle',
-            value: 'Curly',
-          },
-          { 
-            name: 'Tatoo',
-            value: 'None',
-          },
-        ],
-        message: 'El mejor gato del multiuniverso',
-        imgUrl: 'https://placekitten.com/g/300/200',
-      },
-    }
-
-    */
