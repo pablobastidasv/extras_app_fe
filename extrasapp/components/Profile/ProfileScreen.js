@@ -51,10 +51,10 @@ export default class ProfileScreen extends Component {
       <List>
       <FlatList
         data={this.state.data.attributes}
-        keyExtractor={item => item.name}        
+        keyExtractor={item => item.type}        
         renderItem={({ item }) => (
           <ListItem
-            title={_.startCase(item.name)}
+            title={_.startCase(item.type)}
             subtitle={item.value}
             rightIcon={{name: 'face'}}
           />
