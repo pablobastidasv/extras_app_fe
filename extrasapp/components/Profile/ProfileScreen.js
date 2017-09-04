@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Image, View, FlatList} from 'react-native'
+import {Image, View, FlatList} from 'react-native';
 import _ from 'lodash';
 import {Button, Text, Tile, Form, FormInput, Card, List, ListItem} from 'react-native-elements';
 
