@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { AppRegistry, FormLabel, ScrollView, Text, TextInput, View } from 'react-native';
 import { Button, Grid, Row, Col, CheckBox } from 'react-native-elements'
 import _ from 'lodash'
+//import autoBind from 'react-autobind';
+
 
 const cbstyles = {
   padding: 2,
@@ -31,6 +33,7 @@ export default class AttributesForm extends Component {
   	  ethnicity: '',
   	  skin: '',
   	}
+  	this.submit = this.submit.bind(this);
   }
 
   componentWillMount(){
@@ -136,7 +139,7 @@ export default class AttributesForm extends Component {
 	    {_.map(props.skinTypes, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
-		  checked={d===this.state.ethnicity}
+		  checked={d===this.state.skin}
 		  onPress={(a) => this.setState({ skin: d })}
 		  title={d} key={i} />)}
 	  </View>
@@ -172,7 +175,8 @@ export default class AttributesForm extends Component {
   }
 
   submit(){
-
+  	//const { onSubmit } = this.props
+  	this.props.onSubmit(this.state)
   }
 
 
@@ -188,7 +192,11 @@ export default class AttributesForm extends Component {
 	    onContentSizeChange={this.setScrollHeight}
         style={{height: this.state.scrollHeight}}
 	    horizontal={false}>
-		
+		<Button
+  		 title={props.buttonSend}
+  		 onPress={this.submit}
+  		 containerStyle={{backgroundColor: '#34495e'}}>
+  		</Button>
 		<View>
 		  <Text>Name</Text>
 		  <TextInput placeholder="Type in your name" 
@@ -206,6 +214,7 @@ export default class AttributesForm extends Component {
 
   		{this.renderGender()}
   		{this.renderCity()}
+
   		<Button
   		 title={props.buttonSend}
   		 onPress={this.submit}
@@ -226,6 +235,7 @@ AttributesForm.propTypes = {
   ethnicityOptions: React.PropTypes.array,
   skinTypes: React.PropTypes.array,
   buttonSend: React.PropTypes.string,
+  onSubmit: React.PropTypes.func.required,
   //gender:React.PropTypes.array,
 }
 
