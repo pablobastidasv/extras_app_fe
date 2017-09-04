@@ -8,6 +8,9 @@ export default class ProfileScreen extends Component {
   constructor() {
     super()
     this.state = {
+      data: null,
+    }
+    /*this.state = {
       data: {
         profileId: '34599',
         name: 'Marcus Sanchez',
@@ -40,12 +43,24 @@ export default class ProfileScreen extends Component {
         message: 'El mejor gato del multiuniverso',
         imgUrl: 'https://placekitten.com/g/300/200',
       },
-    }
+    }*/
   };
 
  static navigationOptions = {
    title: 'User Profile',
  };
+
+ componentWillMount(){
+  console.log("willmount",this.props)
+  this.setState({ data: this.props.user })
+ }
+
+ componentWillUpdate(props){
+  console.log("Updating the data")
+  if(props.user){
+    this.setState({ data: props.user})
+  }
+ }
  
  render() {
    const { navigate } = this.props.navigation;
@@ -72,3 +87,43 @@ export default class ProfileScreen extends Component {
     </View>);
  }
 }
+
+ProfileScreen.propTypes = {
+  user: React.PropTypes.object,
+}
+
+
+ProfileScreen.defaultProps = {
+  user: {
+        profileId: '34599',
+        name: 'Marcus Sanchez',
+        attributes: [
+          { 
+            name: 'hairLenght',
+            value: 'Short',
+          },
+          { 
+            name: 'nose',
+            value: 'Straight',
+          },
+          { 
+            name: 'bodyType',
+            value: 'Skinny',
+          },
+          { 
+            name: 'eyes',
+            value: 'Dark',
+          },
+          { 
+            name: 'HaiStyle',
+            value: 'Curly',
+          },
+          { 
+            name: 'Tatoo',
+            value: 'None',
+          },
+        ],
+        message: 'El mejor gato del multiuniverso',
+        imgUrl: 'https://placekitten.com/g/300/200',
+      },
+    }
