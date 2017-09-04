@@ -179,11 +179,9 @@ export default class AttributesForm extends Component {
 	</View>)
   }
 
-  submit(){
-  	//const { onSubmit } = this.props
+  submit(){  	
   	this.props.onSubmit(this.state)
   }
-
 
   render() {
   	const { props } = this

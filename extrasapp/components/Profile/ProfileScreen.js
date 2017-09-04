@@ -10,40 +10,6 @@ export default class ProfileScreen extends Component {
     this.state = {
       data: null,
     }
-    /*this.state = {
-      data: {
-        profileId: '34599',
-        name: 'Marcus Sanchez',
-        attributes: [
-          { 
-            name: 'hairLenght',
-            value: 'Short',
-          },
-          { 
-            name: 'nose',
-            value: 'Straight',
-          },
-          { 
-            name: 'bodyType',
-            value: 'Skinny',
-          },
-          { 
-            name: 'eyes',
-            value: 'Dark',
-          },
-          { 
-            name: 'HaiStyle',
-            value: 'Curly',
-          },
-          { 
-            name: 'Tatoo',
-            value: 'None',
-          },
-        ],
-        message: 'El mejor gato del multiuniverso',
-        imgUrl: 'https://placekitten.com/g/300/200',
-      },
-    }*/
   };
 
  static navigationOptions = {
@@ -57,21 +23,15 @@ export default class ProfileScreen extends Component {
  }
 
  loadUser(data){
-  const res = {}
-  _.forEach(data.attributes, (d) => 
-    _.set(res, _.get(d, 'name'), _.get(d,'value'))
-  )
   let user = data
-  user.attributes = res
-  user.imgSrc = 
+  
   user.message= 'El mejor gato del multiuniverso'
   user.imgUrl= 'https://placekitten.com/g/300/200'
-  //console.error(user)
   this.setState({ data: user })
+
  }
 
  componentWillUpdate(props){
-  console.error("Updating the data", props)
   if(props.user){
     this.loadUser(props.user)
     this.setState({ data: props.user})
@@ -145,7 +105,5 @@ ProfileScreen.defaultProps = {
         imgUrl: 'https://placekitten.com/g/300/200',
       },
     }
-
-
 
     */
