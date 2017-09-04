@@ -1,15 +1,20 @@
 import React, { Component } from 'react'
-import { AppRegistry, FormLabel, ScrollView, Text, TextInput, View } from 'react-native';
-import { Button, Grid, Row, Col, CheckBox } from 'react-native-elements'
+import { AppRegistry, FormLabel, ScrollView, TextInput, View } from 'react-native';
+import { Button, Grid, Row, Col, CheckBox, Text, Divider } from 'react-native-elements'
 import _ from 'lodash'
 
 const cbstyles = {
-  padding: 2,
+	padding: 2,
+	backgroundColor: 'transparent',
+	margin: 0,
+	padding: 0,
 }
 
 const cbTextStyles = {
   fontSize: 10,
-  fontWeigh: 'normal',
+	fontWeight: 'normal',
+	marginRight: 0,
+	marginLeft: 0,
 }
 
 const FEMALE = 'Female'
@@ -40,8 +45,8 @@ export default class AttributesForm extends Component {
   renderHairLength(){
   	const { props } = this
   	return (<View>
-	  <Text>Hair Length</Text>
-	  <View>
+	  <Text style={{color: '#c0392b'}}>Hair Length</Text>
+	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.hairLengthOptions, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
@@ -55,8 +60,8 @@ export default class AttributesForm extends Component {
   renderHairColor(){
   	const { props } = this
   	return (<View>
-	  <Text>Hair Color</Text>
-	  <View>
+	  <Text style={{color: '#c0392b'}}>Hair Color</Text>
+	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.hairColorOptions, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
@@ -71,8 +76,8 @@ export default class AttributesForm extends Component {
   renderNoseTypes(){
   	const { props } = this
   	return (<View>
-	  <Text>Hair Color</Text>
-	  <View>
+	  <Text style={{color: '#c0392b'}}>Hair Color</Text>
+	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.noseTypeOptions, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
@@ -86,8 +91,8 @@ export default class AttributesForm extends Component {
   renderBodyTypeOptions() {
   	const { props } = this
   	return (<View>
-	  <Text>Body Type</Text>
-	  <View>
+	  <Text style={{color: '#c0392b'}}>Body Type</Text>
+	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.bodyTypeOptions, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
@@ -101,8 +106,8 @@ export default class AttributesForm extends Component {
   renderEyeColors(){
   	const { props } = this
   	return (<View>
-	  <Text>Eyes</Text>
-	  <View>
+	  <Text style={{color: '#c0392b'}}>Eyes</Text>
+	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.eyeColors, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
@@ -116,8 +121,8 @@ export default class AttributesForm extends Component {
   renderEthnicityTypeOptions(){
   	const { props } = this
   	return (<View>
-	  <Text>Ethnicity</Text>
-	  <View>
+	  <Text style={{color: '#c0392b'}}>Ethnicity</Text>
+	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.ethnicityOptions, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
@@ -131,8 +136,8 @@ export default class AttributesForm extends Component {
   renderSkinTypesOptions(){
   	const { props } = this
   	return (<View>
-	  <Text>Skin</Text>
-	  <View>
+	  <Text style={{color: '#c0392b'}}>Skin</Text>
+	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.skinTypes, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
@@ -146,8 +151,8 @@ export default class AttributesForm extends Component {
   renderGender() {
   	const { props } = this
   	return (<View>
-	  <Text>Gender</Text>
-	  <View>
+	  <Text style={{color: '#c0392b'}}>Gender</Text>
+	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    <CheckBox  containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
 		  checked={MALE === this.state.gender}
@@ -163,8 +168,8 @@ export default class AttributesForm extends Component {
   }
 
   renderCity() {
-  	return (<View>
-	  <Text>City</Text>
+  	return (<View style={{flex: 1, flexDirection: 'column'}}>
+	  <Text style={{color: '#c0392b'}}>City</Text>
 	  <TextInput placeholder="Where are you?" 
 		value={this.state.city}
 		onChangeText={(city) => this.setState({city})} />
@@ -188,27 +193,27 @@ export default class AttributesForm extends Component {
 	    onContentSizeChange={this.setScrollHeight}
         style={{height: this.state.scrollHeight}}
 	    horizontal={false}>
-		
-		<View>
-		  <Text>Name</Text>
-		  <TextInput placeholder="Type in your name" 
-		    value={this.state.name}
-		  	onChangeText={(name) => this.setState({name})} />
-		</View>
-
-		{this.renderHairLength()}
-  		{this.renderHairColor()}
-  		{this.renderNoseTypes()}  
-  		{this.renderBodyTypeOptions()}
-  		{this.renderEyeColors()}
-  		{this.renderEthnicityTypeOptions()}
-  		{this.renderSkinTypesOptions()}
-
-  		{this.renderGender()}
-  		{this.renderCity()}
+			<Text h4 style={{textAlign: 'center', color: '#34495e' }}>What type of extra are you looking for?</Text>
+			<Divider style={{ backgroundColor: '#34495e', marginBottom: '5%', marginTop: '5%' }} />			
+			<View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+				{this.renderHairLength()}
+				{this.renderHairColor()}
+				{this.renderNoseTypes()}  
+			</View>
+			<View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+				{this.renderBodyTypeOptions()}
+				{this.renderEyeColors()}
+				{this.renderEthnicityTypeOptions()}
+			</View>
+			<View style={{flexDirection: 'row', justifyContent: 'space-between'}}>			
+				{this.renderSkinTypesOptions()}
+				{this.renderGender()}
+				{this.renderCity()}
+			</View>
   		<Button
   		 title={props.buttonSend}
-  		 onPress={this.submit}
+			 onPress={this.submit}
+			 backgroundColor={'#34495e'}
   		 containerStyle={{backgroundColor: '#34495e'}}>
   		</Button>
 	  </ScrollView>
