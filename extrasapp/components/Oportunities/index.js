@@ -1,1 +1,5 @@
-export { default as OportunitiesScreen } from './OportunitiesScreen/'
+import OportunitiesScreen from './OportunitiesScreen'
+
+export {
+	OportunitiesScreen,
+}

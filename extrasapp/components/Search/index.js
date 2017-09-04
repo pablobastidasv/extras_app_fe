@@ -1,1 +1,5 @@
-export { default as SearchScreen } from './SearchScreen'
+import SearchScreen from './SearchScreen'
+
+export {
+	SearchScreen,
+}
