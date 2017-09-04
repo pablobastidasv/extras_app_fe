@@ -51,21 +51,38 @@ export default class ProfileScreen extends Component {
  };
 
  componentWillMount(){
-  console.log("willmount",this.props)
-  this.setState({ data: this.props.user })
+  if(this.props.navigation){
+    this.loadUser(this.props.navigation.state.params.user)
+  }
+ }
+
+ loadUser(data){
+  const res = {}
+  _.forEach(data.attributes, (d) => 
+    _.set(res, _.get(d, 'name'), _.get(d,'value'))
+  )
+  let user = data
+  user.attributes = res
+  user.imgSrc = 
+  user.message= 'El mejor gato del multiuniverso'
+  user.imgUrl= 'https://placekitten.com/g/300/200'
+  //console.error(user)
+  this.setState({ data: user })
  }
 
  componentWillUpdate(props){
-  console.log("Updating the data")
+  console.error("Updating the data", props)
   if(props.user){
+    this.loadUser(props.user)
     this.setState({ data: props.user})
   }
  }
  
  render() {
    const { navigate } = this.props.navigation;
-   return (
-    <View>
+   return (<View>
+    {this.state.data && <View>
+
       <Tile
       featured
       imageSrc={{uri: this.state.data.imgUrl }}
@@ -84,7 +101,8 @@ export default class ProfileScreen extends Component {
         )}
       />
     </List>
-    </View>);
+    </View>}
+   </View>)
  }
 }
 
@@ -92,7 +110,7 @@ ProfileScreen.propTypes = {
   user: React.PropTypes.object,
 }
 
-
+/*
 ProfileScreen.defaultProps = {
   user: {
         profileId: '34599',
@@ -127,3 +145,7 @@ ProfileScreen.defaultProps = {
         imgUrl: 'https://placekitten.com/g/300/200',
       },
     }
+
+
+
+    */
