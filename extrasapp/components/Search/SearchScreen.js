@@ -13,6 +13,11 @@ export default class SearchScreen extends Component {
    title: 'Search',
  };
 
+
+  onSubmit(data) {
+
+  }
+
   render() {
    const { navigate } = this.props.navigation;
    const data = getSearch();
@@ -20,7 +25,9 @@ export default class SearchScreen extends Component {
    return (
    	 <View>
    	   <View><Text>Search</Text></View>
-   	   <View><AttributesForm /></View>
+   	   <View>
+   	     <AttributesForm onSubmit={this.onSubmit} />
+   	   </View>
      </View>
    );
  }

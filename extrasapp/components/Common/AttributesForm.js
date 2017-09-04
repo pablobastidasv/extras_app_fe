@@ -28,11 +28,13 @@ export default class AttributesForm extends Component {
   	  eyes: '',
   	  gender:'',
   	  city:'',
-  	  eyes:'',
   	  ethnicity: '',
   	  skin: '',
-  	  height: '',
   	}
+  }
+
+  componentWillMount(){
+
   }
 
   renderHairLength(){
@@ -162,11 +164,15 @@ export default class AttributesForm extends Component {
 
   renderCity() {
   	return (<View>
-	  <Text>Name</Text>
-	  <TextInput placeholder="Type in your name" 
-		value={this.state.name}
-		onChangeText={(name) => this.setState({name})} />
+	  <Text>City</Text>
+	  <TextInput placeholder="Where are you?" 
+		value={this.state.city}
+		onChangeText={(city) => this.setState({city})} />
 	</View>)
+  }
+
+  submit(){
+
   }
 
 
@@ -178,12 +184,11 @@ export default class AttributesForm extends Component {
   	}
 	return (
 	  <ScrollView 
-	  pagingEnabled={true}
-	   onContentSizeChange={this.setScrollHeight}
-    	style={{height: this.state.scrollHeight}}
-
-	  horizontal={false}>
-		<View><Text></Text></View>
+	    pagingEnabled={true}
+	    onContentSizeChange={this.setScrollHeight}
+        style={{height: this.state.scrollHeight}}
+	    horizontal={false}>
+		
 		<View>
 		  <Text>Name</Text>
 		  <TextInput placeholder="Type in your name" 
@@ -201,6 +206,11 @@ export default class AttributesForm extends Component {
 
   		{this.renderGender()}
   		{this.renderCity()}
+  		<Button
+  		 title={props.buttonSend}
+  		 onPress={this.submit}
+  		 containerStyle={{backgroundColor: '#34495e'}}>
+  		</Button>
 	  </ScrollView>
 	);
   }
@@ -215,6 +225,7 @@ AttributesForm.propTypes = {
   eyeColors: React.PropTypes.array,
   ethnicityOptions: React.PropTypes.array,
   skinTypes: React.PropTypes.array,
+  buttonSend: React.PropTypes.string,
   //gender:React.PropTypes.array,
 }
 
@@ -226,4 +237,5 @@ AttributesForm.defaultProps = {
   eyeColors:  ['Green', 'Blue', 'Brown', 'Black'],
   ethnicityOptions: [ 'American Indian', 'Asian', 'Black','White',' Hispanic' ],
   skinTypes: ['Sensitive','Fair', 'Normal', 'Olive', 'Brown', 'Black'],
+  buttonSend:'Search',
 }
