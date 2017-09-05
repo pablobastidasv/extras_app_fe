@@ -19,8 +19,8 @@ const cbTextStyles = {
 	marginLeft: 0,
 }
 
-const FEMALE = 'Female'
-const MALE = 'Male'
+const FEMALE = 'F'
+const MALE = 'M'
 
 export default class AttributesForm extends Component {
 
