@@ -1,5 +1,5 @@
 export const getSearch = (data) => {
-return fetch('http://localhost:4567/search', {  
+return fetch('http://130.211.174.2//search', {  
   method: 'POST',
   headers: {
     'Accept': 'application/json',
