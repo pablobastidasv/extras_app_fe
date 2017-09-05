@@ -58,11 +58,10 @@ export default class SearchScreen extends Component {
    	     </View>
        </View>}
        {this.state.searching && <View>
-       	  <Text>Search Results</Text>
 			<List>
       		  <FlatList
         	   data={this.state.data}
-               keyExtractor={item => item.type}        
+               keyExtractor={item => item.name}        
                renderItem={({ item }) => (
           		<ListItem
                  title={_.startCase(item.name)}

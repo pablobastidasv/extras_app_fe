@@ -68,9 +68,9 @@ export default class AttributesForm extends Component {
 	    {_.map(props.hairColorOptions, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
-		  checked={d===this.state.nose}
+		  checked={d===this.state.hairColor}
 		  checkedColor='#03a9f4'
-		  onPress={(a) => this.setState({ nose: d })}
+		  onPress={(a) => this.setState({ hairColor: d })}
 		  title={d} key={i} />)}
 	  </View>
 	</View>)
@@ -79,13 +79,13 @@ export default class AttributesForm extends Component {
   renderNoseTypes(){
   	const { props } = this
   	return (<View>
-	  <Text style={{color: '#c0392b'}}>Hair Color</Text>
+	  <Text style={{color: '#c0392b'}}>Nose</Text>
 	  <View style={{flex: 1, flexDirection: 'column'}}>
 	    {_.map(props.noseTypeOptions, (d,i) => <CheckBox
 	      containerStyle={cbstyles}
 	      textStyle={cbTextStyles}
-		  checked={d===this.state.hairColor}
-		  onPress={(a) => this.setState({ hairColor: d })}
+		  checked={d===this.state.nose}
+		  onPress={(a) => this.setState({ nose: d })}
 		  title={d} key={i} />)}
 	  </View>
 	</View>)
@@ -192,8 +192,7 @@ export default class AttributesForm extends Component {
 	return (
 	  <ScrollView 
 	    pagingEnabled={true}
-	    onContentSizeChange={this.setScrollHeight}
-        style={{height: this.state.scrollHeight}}
+      style={{height: this.state.scrollHeight}}
 	    horizontal={false}>
 			<Text h4 style={{textAlign: 'center', color: '#34495e' }}>What type of extra are you looking for?</Text>
 			<Button
@@ -218,12 +217,6 @@ export default class AttributesForm extends Component {
 				{this.renderGender()}
 				{this.renderCity()}
 			</View>
-  		<Button
-  		 title={props.buttonSend}
-			 onPress={this.submit}
-			 backgroundColor={'#34495e'}
-  		 containerStyle={{backgroundColor: '#34495e'}}>
-  		</Button>
 	  </ScrollView>
 	);
   }
@@ -239,15 +232,13 @@ AttributesForm.propTypes = {
   ethnicityOptions: React.PropTypes.array,
   skinTypes: React.PropTypes.array,
   buttonSend: React.PropTypes.string,
-  //onSubmit: React.PropTypes.func.required,
-  //gender:React.PropTypes.array,
 }
 
 AttributesForm.defaultProps = {
   hairLengthOptions: ['Long','Short','Curly'],
-  hairColorOptions: ['Blond','Red','Grey','White','Bald'],
+  hairColorOptions: ['Blond','Red','Grey','White'],
   noseTypeOptions: ['Greek','Roman','Nubian','Hawk','Snub','Turnup'],
-  bodyTypeOptions:  ['Blond', 'Red', 'Grey', 'White','Bald','Blond'],
+  bodyTypeOptions: ['Plump', 'Stocky', 'Overweight', 'Fat', 'Slim', 'Trim', 'Skinny', 'Buff', 'Well built'],
   eyeColors:  ['Green', 'Blue', 'Brown', 'Black'],
   ethnicityOptions: [ 'American Indian', 'Asian', 'Black','White',' Hispanic' ],
   skinTypes: ['Sensitive','Fair', 'Normal', 'Olive', 'Brown', 'Black'],

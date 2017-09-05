@@ -13,6 +13,7 @@ export default class HomeScreen extends Component {
     <Image style={{width: 400, height: 300}} source={require('../../assets/images/extrasHome.jpg')}/>
       <Button
       large
+      disabled
       backgroundColor={'#2c3e50'}
       icon={{name: 'user', type: 'font-awesome'}}
       buttonStyle={{marginTop: '5%'}}
@@ -22,6 +23,7 @@ export default class HomeScreen extends Component {
       <Button
       large
       backgroundColor={'#2c3e50'}
+      disabled
       icon={{name: 'cubes', type: 'font-awesome'}}
       buttonStyle={{marginTop: '5%'}}
       borderRadius={5}
