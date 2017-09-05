@@ -205,16 +205,17 @@ export default class AttributesForm extends Component {
 			<View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
 				{this.renderHairLength()}
 				{this.renderHairColor()}
-				{this.renderNoseTypes()}  
+				{this.renderGender()}
 			</View>
 			<View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-				{this.renderBodyTypeOptions()}
+				{this.renderNoseTypes()}  
 				{this.renderEyeColors()}
 				{this.renderEthnicityTypeOptions()}
 			</View>
 			<View style={{flexDirection: 'row', justifyContent: 'space-between'}}>			
 				{this.renderSkinTypesOptions()}
-				{this.renderGender()}
+				
+				{this.renderBodyTypeOptions()}
 				{this.renderCity()}
 			</View>
 	  </ScrollView>
